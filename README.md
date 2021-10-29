@@ -14,8 +14,7 @@ First, we will build a Docker image using our Dockerfile by running the code sni
 
 'docker build . -t bios611proj'
 ^This line creates a Docker image that customized the Rocker/verse image to include all programs and packages needed to execute this project
-^NOTE - this Docker build can take a few minutes! As Lorelai Gilmore Sr once said...
-![Alt Text](https://giphy.com/embed/HgyGnsYbEuY3C)
+^NOTE - this Docker build can take a few minutes! 
 
 Once the build is done running, execute this code snippet:
 
