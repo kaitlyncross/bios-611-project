@@ -4,7 +4,6 @@
 
 library(tidyverse)
 
-setwd("C:/Users/kaitl/Dropbox/School/BIOS 611 Intro to Data Science/PROJECT")
 init = read.csv("books.csv")
 
 #separate authors column into individual authors
@@ -35,9 +34,9 @@ author1 <- init3 %>% count(author, sort=T)
 init3$average_rating = as.numeric(as.character(init3$average_rating))
 author2 <- init3 %>% group_by(author) %>% summarize(avg_rating = mean(average_rating))
 # Find min publication date
-author3 <- init3 %>% group_by(author) %>% summarize(first_book = min(publication_date))
+author3 <- init3 %>% group_by(author) %>% summarize(first_book = as.Date(min(publication_date),format="%m/%d/%Y"))
 # Find max publication date
-author4 <- init3 %>% group_by(author) %>% summarize(last_book = max(publication_date))
+author4 <- init3 %>% group_by(author) %>% summarize(last_book = as.Date(max(publication_date),format="%m/%d/%Y"))
 # Find most common publisher
 # [Return to this later]
 #author5a <- init3 %>% group_by(author, publisher) %>% summarize(count = count(publisher))
@@ -47,4 +46,4 @@ author <- merge(author,author3,by="author")
 author <- merge(author,author4,by="author")
 
 #Save dataset author in working directory
-write.csv(author, file="author.csv")
+save(author, file="author.Rdata")
