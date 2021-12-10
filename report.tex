@@ -31,6 +31,10 @@ Next, let's look to see if more prolific authors (those with more books publishe
 \\ We will now examine for any trends over time or relationships with ratings for individual books.
 \\ The following figure examines for trends with continuous book metadata variables over time:
 \includegraphics[width=0.7\textwidth]{Figures/FiguresOverTime.png}
+\\ We also examined for trends in book ratings with other continuous variables:
+\includegraphics[width=0.5\textwidth]{Figures/ratingsfigure.png}
+\\ The only statistically meaningful relationship uncovered in the dataset was a predictable correlation between the number of ratings provided and the number of text reviews submitted for a given book:
+\includegraphics[width=0.5\textwidth]{Figures/ratingvreview.png}
 \section{Conclusions}
 Based on the findings above, this dataset was found to be unlikely to yield meaningful information on book metadata. Upon examination of extreme values and outliers, several problems were found with the initial data collection method. Since Goodreads.com is subject to user inputs, there are many data points that are misidentified compared to actual publication information. The Goodreads.com database would be a rich resource for mining the actual text of individual reviews for performing analyses such as sentiment analysis or searching for trends in review stars over time (for example, looking at if reviews for Harry Potter books became more critical after author JK Rowling sent several highly publicized tweets considered to be transphobic, which sparked further online criticism of her books).
 For metadata, which is the bulk of what is contained in this project dataset, Goodreads.com is not a reliable source both due to confirmation bias (readers are likely to only input books they love, or those they hate, but not those about which they are neutral) and due to the ease of inputting incorrect information with no method being used to verify metadata. For the kind of analysis we performed here, a database from a library or bookseller would be a prefereable choice.
