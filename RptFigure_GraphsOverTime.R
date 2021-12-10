@@ -1,8 +1,10 @@
 # Relationships over time
+library(dplyr)
+books <- readRDS("books.Rdata")
 
 test <- books %>% mutate(pubdt = as.Date(publication_date,format="%m/%d/%Y"))
 
-png(filename="C:/Users/kaitl/Dropbox/School/BIOS 611 Intro to Data Science/PROJECT/Figures/FiguresOverTime.png")
+png(filename="Figures/FiguresOverTime.png")
 par(mfrow=c(2,2))
 plot(test$pubdt,test$nauthor,main="Number of Authors over Time",
      xlab="Publication Date", ylab="Number of Authors Listed")

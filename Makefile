@@ -11,7 +11,12 @@ clean:
 #Final report output ##############
 report.pdf:\
  report.tex\
- Figures/*
+ Figures/FirstBookOverTime.png\
+ Figures/RatingByFirst.png\
+ Figures/RatingByN.png\
+ Figures/FiguresOverTime.png\
+ Figures/ratingsfigure.png\
+ Figures/ratingvreview.png
 	pdflatex report.tex
 # insert report dependencies as they are created
 

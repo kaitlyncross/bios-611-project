@@ -4,8 +4,9 @@
 \begin{document}
 \title{BIOS 611 Data Science Project}
 \author{Kaitlyn Cross \\ e-mail: kcross@unc.edu}
-\date{October 29, 2021}
+\date{December 10, 2021}
 \maketitle
+\setlength{\parskip}{1em}
 \section{Introduction}
 This report summarizes the examination of data from all titles available on Goodreads.com as of March 2020. Goodreads.com is a database where users input metadata and reviews on books they have read or plan to read. The initial plan for this dataset was to explore the relationship between book metadata (authorship, publication date, etc) and the overall review rating.
 \section{Objective}
@@ -19,22 +20,45 @@ This section presents the results of exploratory analysis using the Goodreads.co
 \\
 We might ask what the distribution of authorship over time is, as shown here:
 \\
-\includegraphics[width=0.5\textwidth]{Figures/FirstBookOverTime.png}\\
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Figures/FirstBookOverTime.png}
+	\caption{First Published Book Date by Author}
+\end{figure}\\
 \\It looks like the majority of the books in the Goodreads database were written in the late 20th and early 21st century.
 Now we can ask if Goodreads reviewers have a preference for more recent literature, as indicated by a higher proportion of 5-star ratings.
 \\First, let's check if older authors (by first published book date) appear to have lower (or higher) ratings than newer authors:
-\includegraphics[width=0.5\textwidth]{Figures/RatingByFirst.png}\\
-Next, let's look to see if more prolific authors (those with more books published total) tend to have higher ratings:
-\includegraphics[width=0.5\textwidth]{Figures/RatingByN.png}\\
-\\
-\\It would appear from the diagrams above that there is no meaningful observable trend in authors' average ratings by characteristics that are observable in this dataset.
-\\ We will now examine for any trends over time or relationships with ratings for individual books.
-\\ The following figure examines for trends with continuous book metadata variables over time:
-\includegraphics[width=0.7\textwidth]{Figures/FiguresOverTime.png}
-\\ We also examined for trends in book ratings with other continuous variables:
-\includegraphics[width=0.5\textwidth]{Figures/ratingsfigure.png}
-\\ The only statistically meaningful relationship uncovered in the dataset was a predictable correlation between the number of ratings provided and the number of text reviews submitted for a given book:
-\includegraphics[width=0.5\textwidth]{Figures/ratingvreview.png}
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Figures/RatingByFirst.png}
+	\caption{Average Author Rating by Date of First Book Published}
+\end{figure}\\
+Next, let's look to see if more prolific authors (those with more books published total) tend to have higher ratings:\\
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Figures/RatingByN.png}
+	\caption{Average Author Rating by Number of Books}
+\end{figure}\\
+It would appear from the diagrams above that there is no meaningful observable trend in authors' average ratings by characteristics that are observable in this dataset, so we will now examine for any trends over time or relationships with ratings for individual books.
+\\ The following figure examines for trends with continuous book metadata variables over time. The lines visible in the plots are fitted linear models showing the relationship between continuous variable and time. All trends appear horizontal, indicating little or no change over time per Goodreads-collected data.\\
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Figures/FiguresOverTime.png}
+	\caption{Book Metrics Over Time}
+\end{figure}\\
+\\ We also examined for trends in book ratings with other continuous variables:\\
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Figures/ratingsfigure.png}
+	\caption{Summary of Book Ratings}
+\end{figure}\\
+\\ The only statistically meaningful relationship uncovered in the dataset was a predictable correlation between the number of ratings provided and the number of text reviews submitted for a given book:\\
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Figures/ratingvreview.png}
+	\caption{Relationship Between Number of Ratings and Number of Reviews}
+\end{figure}\\
+\\This relationship was excpected and makes logical sense, but does not add to our understanding of book data from the Goodreads website.
 \section{Conclusions}
 Based on the findings above, this dataset was found to be unlikely to yield meaningful information on book metadata. Upon examination of extreme values and outliers, several problems were found with the initial data collection method. Since Goodreads.com is subject to user inputs, there are many data points that are misidentified compared to actual publication information. The Goodreads.com database would be a rich resource for mining the actual text of individual reviews for performing analyses such as sentiment analysis or searching for trends in review stars over time (for example, looking at if reviews for Harry Potter books became more critical after author JK Rowling sent several highly publicized tweets considered to be transphobic, which sparked further online criticism of her books).
 For metadata, which is the bulk of what is contained in this project dataset, Goodreads.com is not a reliable source both due to confirmation bias (readers are likely to only input books they love, or those they hate, but not those about which they are neutral) and due to the ease of inputting incorrect information with no method being used to verify metadata. For the kind of analysis we performed here, a database from a library or bookseller would be a prefereable choice.

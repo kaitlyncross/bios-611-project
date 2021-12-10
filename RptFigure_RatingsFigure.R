@@ -4,8 +4,9 @@
 
 library(tidyverse)
 library(ggstatsplot)
+library(ggpubr)
 #setwd("C:/Users/kaitl/Dropbox/School/BIOS 611 Intro to Data Science/PROJECT")
-load("books.Rdata")
+books <- readRDS("books.Rdata")
 
 books$avg_rating <- as.numeric(books$average_rating)
 books$num_pages <- as.numeric(books$num_pages)

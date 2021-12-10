@@ -13,5 +13,5 @@ ggplot(author, aes(x=n,y=avg_rating, na.rm=T)) +
     geom_point() +
     labs(title="Average Author Rating by Number of Books Published",
          x="Number of Books Published (count)",
-         y="Author's Average Rating (0 to 5 stars)")
+         y="Author's Average Rating")
 dev.off()
