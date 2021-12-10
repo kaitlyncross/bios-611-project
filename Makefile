@@ -11,18 +11,19 @@ clean:
 #Final report output ##############
 report.pdf:\
  report.tex\
- Figures/FirstBookOverTime.png\
- Figures/RatingByFirst.png\
- Figures/RatingByN.png
+ Figures/*
 	pdflatex report.tex
 # insert report dependencies as they are created
 
 #process data for figures
 author.Rdata: ProcessData.R
 	Rscript ProcessData.R
+#process data for figures
+books.Rdata: ProcessData.R
+	Rscript ProcessData.R
 
 #Figure 1: Book Authorship Over Time
-Figures/FirstBookOverTime.png: ProcessData.R author.Rdata RptFigure_FirstBookOverTime.r
+Figures/FirstBookOverTime.png: ProcessData.R author.Rdata RptFigure_FirstBookOverTime.R
 	Rscript RptFigure_FirstBookOverTime.R
 
 #Figure 2: Avg Author Rating by time of first publication
@@ -35,3 +36,24 @@ Figures/RatingByN.png:\
  author.Rdata\
  RptFigure_RatingByN.R 
 	Rscript RptFigure_RatingByN.R
+	
+#Figure 4: Data Over Time
+Figures/FiguresOverTime.png:\
+ ProcessData.R\
+ books.Rdata\
+ RptFigure_GraphsOverTime.R 
+	Rscript RptFigure_GraphsOverTime.R
+	
+#Figure 5: Ratings by Book
+Figures/ratingsfigure.png:\
+ ProcessData.R\
+ books.Rdata\
+ RptFigure_RatingsFigure.R 
+	Rscript RptFigure_RatingsFigure.R
+	
+#Figure 5: Ratings vs Reviews
+Figures/ratingvreview.png:\
+ ProcessData.R\
+ books.Rdata\
+ RptFigure_RatingsvReviews.R 
+	Rscript RptFigure_RatingsvReviews.R
