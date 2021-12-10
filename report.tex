@@ -7,25 +7,32 @@
 \date{October 29, 2021}
 \maketitle
 \section{Introduction}
-This report summarizes the examination of data from all titles available on Goodreads.com as of (DATE).
+This report summarizes the examination of data from all titles available on Goodreads.com as of March 2020. Goodreads.com is a database where users input metadata and reviews on books they have read or plan to read. The initial plan for this dataset was to explore the relationship between book metadata (authorship, publication date, etc) and the overall review rating.
 \section{Objective}
 To find meaningful trends in book authorship and reception over time and by author characteristic.
 \section{Methods}
-Under development as of 29OCT2021
+Data underwent initial cleaning and processing to create two main analysis datasets. The first is a mirror of the originally downloaded dataset, with one record per unique ISBN (a universal book identifier). The second is a database with one record per book per author, so that characteristics of different authors could be assessed.
+
+Next, data were processed using exploratory data analysis techniques. As there were no categorical variables with low dimension, k-means clustering was used with several combinations of continuous variables to search for clusters within the data to act as categories. However, this analysis did not yield meaningful results and is not presented in the final report. All exploratory analysis then assumed continuous data and took the form of linear model estimates and correlations.
 \section{Results}
-Some test graphics are provided below for the midterm review:
+This section presents the results of exploratory analysis using the Goodreads.com dataset.
 \\
 We might ask what the distribution of authorship over time is, as shown here:
 \\
 \includegraphics[width=0.5\textwidth]{Figures/FirstBookOverTime.png}\\
-It looks like the majority of the books in the Goodreads database were written in the late 20th and early 21st century.
-Now we can ask if Goodreads reviewers have a preference for more recent literature.
-First, let's check if older authors (by first published book date) appear to have lower (or higher) ratings than newer authors:
+\\It looks like the majority of the books in the Goodreads database were written in the late 20th and early 21st century.
+Now we can ask if Goodreads reviewers have a preference for more recent literature, as indicated by a higher proportion of 5-star ratings.
+\\First, let's check if older authors (by first published book date) appear to have lower (or higher) ratings than newer authors:
 \includegraphics[width=0.5\textwidth]{Figures/RatingByFirst.png}\\
 Next, let's look to see if more prolific authors (those with more books published total) tend to have higher ratings:
 \includegraphics[width=0.5\textwidth]{Figures/RatingByN.png}\\
 \\
+\\It would appear from the diagrams above that there is no meaningful observable trend in authors' average ratings by characteristics that are observable in this dataset.
+\\ We will now examine for any trends over time or relationships with ratings for individual books.
+\\ The following figure examines for trends with continuous book metadata variables over time:
+\includegraphics[width=0.7\textwidth]{Figures/FiguresOverTime.png}
 \section{Conclusions}
-TBD as of 29OCT2021
+Based on the findings above, this dataset was found to be unlikely to yield meaningful information on book metadata. Upon examination of extreme values and outliers, several problems were found with the initial data collection method. Since Goodreads.com is subject to user inputs, there are many data points that are misidentified compared to actual publication information. The Goodreads.com database would be a rich resource for mining the actual text of individual reviews for performing analyses such as sentiment analysis or searching for trends in review stars over time (for example, looking at if reviews for Harry Potter books became more critical after author JK Rowling sent several highly publicized tweets considered to be transphobic, which sparked further online criticism of her books).
+For metadata, which is the bulk of what is contained in this project dataset, Goodreads.com is not a reliable source both due to confirmation bias (readers are likely to only input books they love, or those they hate, but not those about which they are neutral) and due to the ease of inputting incorrect information with no method being used to verify metadata. For the kind of analysis we performed here, a database from a library or bookseller would be a prefereable choice.
 \end{document}
 
